@@ -1,0 +1,32 @@
+version: 0.2
+
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - pwd
+    finally:
+      - echo Moving to pre-build stage
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+    finally:
+      - echo Moving to build stage
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo "this file will from build process" > build.html
+
+    finally:
+      - echo Moving to post build
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+
+artifacts:
+  files:
+    - ./**/*
+    - appspec.yml
+    - scripts/**
+  name: Arti_iqarena_admin_master
